@@ -22,6 +22,12 @@ def read_data(file_name):
 
     data = [video_sizes, endpoints, requests]
 
+'''
+    0 : [1, 2, 3 ...video_sizes]
+    1 : [{"latency", "servers" : [{"id", "latency"}, ... ] }]
+    2 : [{"video_id", "endpoint_id", "request_number"}]
+'''
+
     return data
 
 
