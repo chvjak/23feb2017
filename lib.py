@@ -20,16 +20,19 @@ def read_data(file_name):
         video_id, endpoint_id, request_number =  [int(x) for x in f.readline().strip().split()]
         requests.append( {"video_id": video_id,  "endpoint_id" : endpoint_id, "request_number" :  request_number} )
 
-
     data = [video_sizes, endpoints, requests]
 
     return data
 
 
-def write_data(file_name, data):
+def write_data(file_name, servers):
     f = open(file_name, "w")
 
-    for line in data:
-        f.write(line)
+    N = len(servers)
+    f.write(str(N) + "\n")
+
+    for i in range(N):
+        server_videos = servers[i]
+        f.write(' '.join([str(v) for v in [i] + server_videos]) + "\n")
 
     f.close()

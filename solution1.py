@@ -18,7 +18,13 @@ def memoize(function):
 
 #@memoize
 def solve(data):
-    return []
+    res = [None] * 3
+
+    res[0] = [2]
+    res[1] = [3, 1]
+    res[2] = [0, 1]
+
+    return res
 
 data = lib.read_data("me_at_the_zoo.in")
 
