@@ -20,7 +20,7 @@ def memoize(function):
 def solve(data):
     return []
 
-data = lib.read_data("input1.txt")
+data = lib.read_data("me_at_the_zoo.in")
 
 solution = solve(data)
 
