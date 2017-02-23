@@ -9,10 +9,10 @@ def read_data(file_name):
     endpoints = []
     for i in range(E):
         latency, cache_servers = [int(x) for x in f.readline().strip().split()]
-        ep = {"latency":latency, "servers": []}
+        ep = {"latency" : latency, "servers": {}}
         for j in range(cache_servers):
             server_id, latency =  [int(x) for x in f.readline().strip().split()]
-            ep["servers"].append({"id": server_id, "latency": latency})
+            ep["servers"][server_id] = latency
         endpoints.append(ep)
 
     requests = []
@@ -34,6 +34,6 @@ def write_data(file_name, servers):
 
     for i in range(N):
         server_videos = servers[i]
-        f.write(' '.join([str(v) for v in [i] + server_videos]) + "\n")
+        f.write(' '.join([str(v) for v in [i] + list(server_videos)]) + "\n")
 
     f.close()
