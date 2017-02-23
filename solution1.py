@@ -1,5 +1,6 @@
 import lib
 
+# test
 def memoize(function):
     from functools import wraps
 
